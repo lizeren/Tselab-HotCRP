@@ -80,7 +80,33 @@ Register your first account at http://localhost:9001 - it will automatically bec
 
 If using MailHog, check http://localhost:9002 for the verification email.
 
+
+
+## Restarting Services
+
+Restart all services:
+```bash
+docker-compose restart
+```
+
+Restart specific service:
+```bash
+docker-compose restart php
+docker-compose restart nginx
+docker-compose restart smtp
+```
+
+After changing `docker-compose.yaml` or `.env`:
+```bash
+docker-compose down && docker-compose up -d
+```
+
+
+
+
+
 ## Complete Teardown/Destruction
+
 
 ### Stop containers (preserves data)
 ```bash
@@ -105,24 +131,6 @@ rm -rf mail-spool/
 docker system prune -a  # Remove unused Docker images
 ```
 
-## Restarting Services
-
-Restart all services:
-```bash
-docker-compose restart
-```
-
-Restart specific service:
-```bash
-docker-compose restart php
-docker-compose restart nginx
-docker-compose restart smtp
-```
-
-After changing `docker-compose.yaml` or `.env`:
-```bash
-docker-compose down && docker-compose up -d
-```
 
 
 ## More options
