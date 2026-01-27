@@ -9,6 +9,29 @@ Complete Docker-based deployment for HotCRP (conference management system). This
 - Nginx web server
 - SMTP server (MailHog for testing or production SMTP)
 
+## Deployment Options
+
+### Option 1: Ansible Deployment (Recommended for Production)
+
+For automated deployment to remote servers using Ansible, see the **[Ansible Deployment Guide](ansible/README.md)**.
+
+Benefits:
+- Automated installation of Docker and dependencies
+- Idempotent deployment (safe to run multiple times)
+- Easy updates and rollbacks
+- Built-in backup and restore playbooks
+
+Quick start:
+```bash
+cd ansible
+# Edit inventory.ini and vars.yml with your settings
+ansible-playbook -i inventory.ini deploy.yml
+```
+
+### Option 2: Manual Deployment (Development/Testing)
+
+For local development or manual server setup, follow the instructions below.
+
 ## Quick Start (Development/Testing)
 
 ### 1. Clone this repository

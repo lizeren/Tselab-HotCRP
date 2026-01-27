@@ -1,0 +1,11 @@
+---
+# Minimal Ansible playbook to start HotCRP docker-compose
+- name: Start HotCRP Docker Compose
+  hosts: hotcrp_servers
+  become: yes
+
+  tasks:
+    - name: Start docker-compose services
+      shell: docker-compose up -d
+      args:
+        chdir: /opt/hotcrp
