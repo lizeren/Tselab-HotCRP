@@ -1,0 +1,328 @@
+[
+  {
+    "name": "paper", "get": true, "post": true, "delete": true, "merge": true,
+    "tags": ["Submissions"], "order": 0
+  },
+  {
+    "name": "papers", "get": true, "post": true, "merge": true,
+    "tags": ["Submissions"], "order": 1
+  },
+  {
+    "name": "share", "get": true, "post": true, "delete": true, "merge": true,
+    "tags": ["Submissions"], "order": 2
+  },
+  {
+    "name": "document", "get": true, "merge": true,
+    "tags": ["Documents"], "order": 0
+  },
+  {
+    "name": "documenthistory", "get": true, "merge": true,
+    "tags": ["Documents"], "order": 1
+  },
+  {
+    "name": "formatcheck", "get": true, "merge": true,
+    "tags": ["Documents"], "order": 2
+  },
+  {
+    "name": "archivelisting", "get": true, "merge": true,
+    "tags": ["Documents"], "order": 3
+  },
+  {
+    "name": "upload", "post": true, "merge": true,
+    "tags": ["Documents"], "order": 4
+  },
+  {
+    "name": "assign", "post": true, "merge": true,
+    "tags": ["Assignments"]
+  },
+  {
+    "name": "assigners", "get": true, "merge": true,
+    "tags": ["Assignments"]
+  },
+  {
+    "name": "assigntags", "post": true, "merge": true,
+    "tags": ["Tags"]
+  },
+  {
+    "name": "autoassign", "post": true, "merge": true,
+    "tags": ["Assignments"]
+  },
+  {
+    "name": "autoassigners", "get": true, "merge": true,
+    "tags": ["Assignments"]
+  },
+  {
+    "name": "decision", "get": true, "merge": true,
+    "tags": ["Submission administration"]
+  },
+  {
+    "name": "decision", "post": true, "merge": true,
+    "tags": ["Submission administration"]
+  },
+  {
+    "name": "lead", "get": true, "merge": true,
+    "tags": ["Submission administration"]
+  },
+  {
+    "name": "lead", "post": true, "merge": true,
+    "tags": ["Submission administration"]
+  },
+  {
+    "name": "manager", "get": true, "merge": true,
+    "tags": ["Submission administration"]
+  },
+  {
+    "name": "manager", "post": true, "merge": true,
+    "tags": ["Submission administration"]
+  },
+  {
+    "name": "reviewround", "post": true, "merge": true,
+    "tags": ["Submission administration"]
+  },
+  {
+    "name": "shepherd", "get": true, "merge": true,
+    "tags": ["Submission administration"]
+  },
+  {
+    "name": "shepherd", "post": true, "merge": true,
+    "tags": ["Submission administration"]
+  },
+  {
+    "name": "search", "get": true, "merge": true,
+    "tags": ["Search"], "order": 0
+  },
+  {
+    "name": "fieldhtml", "get": true, "merge": true,
+    "tags": ["Search"], "order": false
+  },
+  {
+    "name": "fieldtext", "get": true, "merge": true,
+    "tags": ["Search"], "order": false
+  },
+  {
+    "name": "searchactions", "get": true, "merge": true,
+    "tags": ["Search"], "order": 1
+  },
+  {
+    "name": "searchaction", "get": true, "post": true, "merge": true,
+    "tags": ["Search"], "order": 2
+  },
+  {
+    "name": "graphdata", "get": true, "merge": true,
+    "tags": ["Search"]
+  },
+  {
+    "name": "namedsearch", "get": true, "merge": true,
+    "tags": ["Search"]
+  },
+  {
+    "name": "namedsearch", "post": true, "merge": true,
+    "tags": ["Search"]
+  },
+  {
+    "name": "searchcompletion", "get": true, "merge": true,
+    "tags": ["Search"]
+  },
+  {
+    "name": "displayfields", "get": true, "merge": true,
+    "tags": ["Search"]
+  },
+  {
+    "name": "viewoptions", "get": true, "merge": true,
+    "tags": ["Search"]
+  },
+  {
+    "name": "viewoptions", "post": true, "merge": true,
+    "tags": ["Search"]
+  },
+  {
+    "name": "tags", "get": true, "merge": true,
+    "tags": ["Tags"], "order": 0
+  },
+  {
+    "name": "tags", "post": true, "merge": true,
+    "tags": ["Tags"], "order": 0
+  },
+  {
+    "name": "alltags", "get": true, "merge": true,
+    "tags": ["Tags"]
+  },
+  {
+    "name": "taganno", "get": true, "merge": true,
+    "tags": ["Tags"]
+  },
+  {
+    "name": "taganno", "post": true, "merge": true,
+    "tags": ["Tags"]
+  },
+  {
+    "name": "tagmessages", "get": true, "merge": true,
+    "tags": ["Tags"]
+  },
+  {
+    "name": "votereport", "get": true, "merge": true,
+    "tags": ["Tags"]
+  },
+  {
+    "name": "revpref", "get": true, "merge": true,
+    "tags": ["Review preferences"]
+  },
+  {
+    "name": "revpref", "post": true, "merge": true,
+    "tags": ["Review preferences"]
+  },
+  {
+    "name": "review", "get": true, "post": true, "merge": true,
+    "tags": ["Reviews"], "order": 0
+  },
+  {
+    "name": "reviewhistory", "get": true, "merge": true,
+    "tags": ["Reviews"], "order": 1
+  },
+  {
+    "name": "acceptreview", "post": true, "merge": true,
+    "tags": ["Reviews"]
+  },
+  {
+    "name": "claimreview", "post": true, "merge": true,
+    "tags": ["Reviews"]
+  },
+  {
+    "name": "declinereview", "post": true, "merge": true,
+    "tags": ["Reviews"]
+  },
+  {
+    "name": "requestreview", "post": true, "merge": true,
+    "tags": ["Reviews"]
+  },
+  {
+    "name": "reviewrating", "get": true, "merge": true,
+    "tags": ["Reviews"]
+  },
+  {
+    "name": "reviewrating", "post": true, "merge": true,
+    "tags": ["Reviews"]
+  },
+  {
+    "name": "reviewtoken", "get": true, "post": true, "merge": true,
+    "tags": ["Reviews"]
+  },
+  {
+    "name": "comment", "get": true, "merge": true,
+    "tags": ["Comments"], "order": 0,
+    "response_info": {"comment": "comment", "comments": "[comment]"}
+  },
+  {
+    "name": "comment", "post": true, "merge": true,
+    "tags": ["Comments"], "order": 0,
+    "response_info": {"comment": "comment"}
+  },
+  {
+    "name": "mentioncompletion", "get": true, "merge": true,
+    "tags": ["Comments"]
+  },
+  {
+    "name": "track", "post": true, "merge": true,
+    "tags": ["Meeting tracker"], "order": 0
+  },
+  {
+    "name": "trackerstatus", "get": true, "merge": true,
+    "tags": ["Meeting tracker"], "order": 1
+  },
+  {
+    "name": "trackerconfig", "post": true, "merge": true,
+    "tags": ["Meeting tracker"]
+  },
+  {
+    "name": "user", "get": true, "merge": true,
+    "tags": ["Users"], "order": 0
+  },
+  {
+    "name": "pc", "get": true, "merge": true,
+    "tags": ["Users"]
+  },
+  {
+    "name": "clickthrough", "post": true, "merge": true,
+    "tags": ["Profile"]
+  },
+  {
+    "name": "events", "get": true, "merge": true,
+    "tags": ["Notifications"]
+  },
+  {
+    "name": "follow", "post": true, "merge": true,
+    "tags": ["Notifications"]
+  },
+  {
+    "name": "mailtext", "get": true, "merge": true,
+    "tags": ["Site information"]
+  },
+  {
+    "name": "settings", "get": true, "post": true, "merge": true,
+    "tags": ["Settings"], "order": 0
+  },
+  {
+    "name": "reviewfieldlibrary", "get": true, "merge": true,
+    "tags": ["Settings"]
+  },
+  {
+    "name": "settingdescriptions", "get": true, "merge": true,
+    "tags": ["Settings"]
+  },
+  {
+    "name": "submissionfieldlibrary", "get": true, "merge": true,
+    "tags": ["Settings"]
+  },
+  {
+    "name": "account", "get": true, "merge": true,
+    "tags": ["Site administration"]
+  },
+  {
+    "name": "account", "post": true, "merge": true,
+    "tags": ["Site administration"]
+  },
+  {
+    "name": "namedformula", "get": true, "merge": true,
+    "tags": ["Site administration"]
+  },
+  {
+    "name": "namedformula", "post": true, "merge": true,
+    "tags": ["Site administration"]
+  },
+  {
+    "name": "job", "get": true, "merge": true,
+    "tags": ["Task management"]
+  },
+  {
+    "name": "jserror", "post": true, "merge": true,
+    "tags": ["Session"]
+  },
+  {
+    "name": "oauthtoken", "post": true, "merge": true,
+    "tags": ["Session"]
+  },
+  {
+    "name": "session", "get": true, "merge": true,
+    "tags": ["Session"]
+  },
+  {
+    "name": "session", "post": true, "merge": true,
+    "tags": ["Session"]
+  },
+  {
+    "name": "whoami", "get": true, "merge": true,
+    "tags": ["Profile"]
+  },
+  {
+    "name": "reauth", "post": true, "merge": true,
+    "tags": ["Session"]
+  },
+  {
+    "name": "stashmessages", "post": true, "merge": true,
+    "tags": ["Session"]
+  },
+  {
+    "name": "cspreport", "post": true, "merge": true,
+    "tags": ["Session"]
+  }
+]

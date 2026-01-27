@@ -1,0 +1,18 @@
+
+
+
+# MySQL database files (generated at runtime)
+dbdata/
+
+# Runtime logs
+logs/
+
+# Mail spool (runtime data)
+mail-spool/
+
+# macOS
+.DS_Store
+
+# Editor files
+.vscode/
+.idea/
