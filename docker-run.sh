@@ -115,13 +115,19 @@ sleep 3
 echo "Starting NGINX container..."
 $DOCKER_CMD run -d \
     --name $NGINX_CONTAINER \
-    --network $NETWORK_NAME \
+    --network purdue-monitor \
     --restart always \
-    -p 9001:80 \
     -v "$SCRIPT_DIR/app:/srv/www/api" \
     -v "$SCRIPT_DIR/logs/nginx:/var/log/nginx" \
     -v "$SCRIPT_DIR/docker/nginx/default.conf:/etc/nginx/conf.d/default.conf" \
+    -e VIRTUAL_HOST=hotcrp.tsel.purdue.wtf \
+    -e LETSENCRYPT_HOST=hotcrp.tsel.purdue.wtf \
+    -e LETSENCRYPT_EMAIL=admin@purdue.edu \
     nginx:alpine
+
+# Connect NGINX to internal network for PHP and MySQL access
+echo "Connecting NGINX to internal HotCRP network..."
+$DOCKER_CMD network connect $NETWORK_NAME $NGINX_CONTAINER
 
 # Start MySQL container
 echo "Starting MySQL container..."
@@ -144,8 +150,9 @@ echo "All containers started successfully!"
 echo "Note: MySQL may take 30-60 seconds to initialize on first run."
 echo ""
 echo "Services:"
+echo "  - HotCRP Web: http://hotcrp.tsel.purdue.wtf (via nginx-proxy)"
+echo "  - HotCRP Web (direct): http://localhost (if nginx-proxy is on port 80)"
 echo "  - SMTP (MailHog): http://localhost:9002"
-echo "  - HotCRP Web: http://localhost:9001"
 echo ""
 echo "Container names:"
 echo "  - SMTP: $SMTP_CONTAINER"
@@ -153,6 +160,13 @@ echo "  - PHP: $PHP_CONTAINER"
 echo "  - NGINX: $NGINX_CONTAINER"
 echo "  - MySQL: $MYSQL_CONTAINER"
 echo ""
+echo "Networks:"
+echo "  - External: purdue-monitor (nginx-proxy access)"
+echo "  - Internal: $NETWORK_NAME (PHP/MySQL communication)"
+echo ""
 echo "To view logs, use: docker logs <container-name>"
 echo "To stop all containers, run: ./docker-stop.sh"
+echo ""
+echo "Wait 1-2 minutes for SSL certificate, then test:"
+echo "  curl http://hotcrp.tsel.purdue.wtf"
 echo ""
