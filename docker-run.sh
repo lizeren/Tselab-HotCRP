@@ -81,9 +81,16 @@ $DOCKER_CMD run -d \
     --network $NETWORK_NAME \
     --network-alias smtp \
     --restart always \
-    -p 9002:8025 \
     -e MH_SMTP_BIND_ADDR=0.0.0.0:25 \
+    -e VIRTUAL_HOST=mailhog.tsel.purdue.wtf \
+    -e VIRTUAL_PORT=8025 \
+    -e LETSENCRYPT_HOST=mailhog.tsel.purdue.wtf \
+    -e LETSENCRYPT_EMAIL=admin@purdue.edu \
     mailhog/mailhog:v1.0.1
+
+# Connect SMTP container to nginx-proxy network for web UI access
+echo "Connecting SMTP web UI to nginx-proxy..."
+$DOCKER_CMD network connect purdue-monitor $SMTP_CONTAINER
 
 # Start PHP container
 echo "Starting PHP container..."
@@ -152,7 +159,7 @@ echo ""
 echo "Services:"
 echo "  - HotCRP Web: http://hotcrp.tsel.purdue.wtf (via nginx-proxy)"
 echo "  - HotCRP Web (direct): http://localhost (if nginx-proxy is on port 80)"
-echo "  - SMTP (MailHog): http://localhost:9002"
+echo "  - SMTP (MailHog): http://hotcrp.tsel.purdue.wtf"
 echo ""
 echo "Container names:"
 echo "  - SMTP: $SMTP_CONTAINER"
