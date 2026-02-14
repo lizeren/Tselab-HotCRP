@@ -48,6 +48,70 @@ This script will:
 # View all logs together
 ./docker-logs.sh all
 ```
+## Initial Database Setup
+
+After running `docker-run.sh` for the first time, you need to initialize the HotCRP database.
+
+### Step 1: Wait for MySQL to be ready
+```bash
+docker logs hotcrp-mysql --tail 20
+```
+Look for the message: "mysqld: ready for connections"
+
+
+### Step 2: Create the conf directory
+
+# Create configuration directory in your working directory
+```bash
+mkdir -p app/conf
+chmod 755 app/conf
+```
+# Run interactively to set up the database
+```bash
+docker exec -it hotcrp-mysql sh /srv/www/api/lib/createdb.sh --user=root --password=root
+```
+Follow the prompts:
+- Type ok - Confirm to continue
+- Type hotcrp - Database name (must match docker-run.sh settings)
+- Type hotcrppwd - Database password (must match docker-run.sh settings)
+- Type Y - Confirm to use/replace existing database
+- Type Y - Confirm to populate database with schema
+
+
+### Step 4: Configure database credentials
+Edit app/conf/options.php and verify these settings:
+
+```php
+$Opt["dbName"] = "hotcrp";
+$Opt["dbUser"] = "hotcrp";
+$Opt["dbPassword"] = "hotcrppwd";
+$Opt["dbHost"] = "mysql";
+
+# Also configure email settings:
+
+$Opt["contactName"] = "Your Name";
+$Opt["contactEmail"] = "admin@purdue.edu";
+$Opt["sendEmail"] = true;
+$Opt["emailFrom"] = "noreply@tsel.purdue.wtf";
+```
+
+Make options.php readable by the web server
+```bash
+chmod 644 app/conf/options.php
+```
+
+### Step 6: Verify the setup
+
+```bash
+# Test database connection
+docker exec hotcrp-php mysql -h mysql -u hotcrp -photcrppwd hotcrp -e "SELECT 1"
+
+# Check PHP logs for any errors
+docker logs hotcrp-php --tail 50
+
+# Access HotCRP web interface
+# Visit: https://hotcrp.tsel.purdue.wtf
+```
 
 **Available services:** smtp, php, nginx, mysql, all
 
@@ -138,3 +202,35 @@ HOTCRP_EMAIL_FROM=your_email_from
 ```
 
 The `docker-run.sh` script will automatically load these variables.
+
+
+
+
+
+
+## TroubleShooting
+
+Troubleshooting Database Setup
+- Database connection failed:
+```bash
+# Verify MySQL is running
+docker ps --filter name=hotcrp-mysql
+# Check MySQL logs
+docker logs hotcrp-mysql --tail 50
+# Verify credentials in options.php match docker-run.sh environment variables
+```
+- Options.php permission denied:
+```bash
+# Fix permissions
+chmod 644 app/conf/options.php
+# Verify
+ls -la app/conf/options.php
+# Should show: -rw-r--r--
+```
+- HotCRP unable to load:
+```bash
+# Check PHP error logs (most important)
+docker logs hotcrp-php --tail 100
+# Check NGINX logs
+docker logs hotcrp-nginx --tail 50
+```
